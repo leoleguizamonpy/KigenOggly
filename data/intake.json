@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "demo": false,
+  "project_id": "kigen_oggly",
+  "source_block": "project_intake",
+  "target_block": "research_diagnosis",
+  "stage": "diagnostico",
+  "records": [
+    {
+      "id": "initial_request_001",
+      "kind": "initial_request",
+      "data": {
+        "intake_version": 2,
+        "text": "Examinar con Kigen el producto QR que ya está en construcción, determinar con evidencia su estado, las necesidades reales, las dificultades y las alternativas para su evolución. No presuponer reconstrucción, defectos, ni que las capacidades declaradas están funcionando para usuarios finales."
+      },
+      "source_refs": [
+        "user:project_direction_20261015"
+      ]
+    },
+    {
+      "id": "project_context_001",
+      "kind": "project_context",
+      "data": {
+        "project_name": "KigenOggly",
+        "context_description": "Análisis de un sistema existente de tarjetas QR, enlaces y analítica comercial. QR conserva su código y autoridad. KigenOggly investiga, evalúa alternativas y prepara decisiones separadas del repositorio de ejecución."
+      },
+      "source_refs": [
+        "user:project_direction_20261015",
+        "src:qr_readme"
+      ]
+    },
+    {
+      "id": "source_entry_001",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_readme",
+        "source_type": "document",
+        "title": "Presentación general del producto",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/README.md"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_002",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_foundation",
+        "source_type": "document",
+        "title": "Propósito y límites declarados",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/FOUNDATION.md"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_003",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_product",
+        "source_type": "document",
+        "title": "Actores y objetos del producto",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/PRODUCT.md"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_004",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_architecture",
+        "source_type": "document",
+        "title": "Organización arquitectónica",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/ARCHITECTURE.md"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_005",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_access",
+        "source_type": "document",
+        "title": "Políticas de acceso declaradas",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/ACCESS.md"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_006",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_analytics",
+        "source_type": "document",
+        "title": "Especificación de analítica",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/ANALYTICS.md"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_007",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_geolocation",
+        "source_type": "document",
+        "title": "Modelo de estimación geográfica",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/GEOLOCATION.md"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_008",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_workflow",
+        "source_type": "document",
+        "title": "Flujo de certificación automatizada",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/.github/workflows/qr-certification.yml"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_009",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_tracking_code",
+        "source_type": "document",
+        "title": "Código de registro de eventos",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/src/tracking.ts"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_010",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_analytics_code",
+        "source_type": "document",
+        "title": "Código de la vista analítica",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/src/ui/analytics.ts"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_011",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_tracking_checks",
+        "source_type": "document",
+        "title": "Verificaciones automatizadas de tracking",
+        "locator": "https://github.com/leoleguizamonpy/QR/blob/8e628c3484de31a1e88ab3b6e75cb2e25e371f32/tests/tracking.test.ts"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_entry_012",
+      "kind": "source_entry",
+      "data": {
+        "source_ref": "src:qr_ci_run",
+        "source_type": "web_page",
+        "title": "Certificación automatizada de QR del 13 de octubre de 2026",
+        "locator": "https://github.com/leoleguizamonpy/QR/actions/runs/38348129912"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_capture_001",
+      "kind": "source_capture",
+      "data": {
+        "source_ref": "src:qr_foundation",
+        "content": "Construir un sistema que permita medir el rendimiento comercial de tarjetas físicas mediante QR únicos y una tarjeta digital asociada."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_quote_001",
+      "kind": "source_quote",
+      "data": {
+        "source_ref": "src:qr_foundation",
+        "quote": "Construir un sistema que permita medir el rendimiento comercial de tarjetas físicas mediante QR únicos y una tarjeta digital asociada."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_capture_002",
+      "kind": "source_capture",
+      "data": {
+        "source_ref": "src:qr_product",
+        "content": "Recipient y Visitor pueden coincidir, pero el sistema no debe asumirlo."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_quote_002",
+      "kind": "source_quote",
+      "data": {
+        "source_ref": "src:qr_product",
+        "quote": "Recipient y Visitor pueden coincidir, pero el sistema no debe asumirlo."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_capture_003",
+      "kind": "source_capture",
+      "data": {
+        "source_ref": "src:qr_architecture",
+        "content": "Separar el camino crítico de escaneo de la capa administrativa y mantener el dominio independiente del proveedor de geolocalización y del framework visual."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_quote_003",
+      "kind": "source_quote",
+      "data": {
+        "source_ref": "src:qr_architecture",
+        "quote": "Separar el camino crítico de escaneo de la capa administrativa y mantener el dominio independiente del proveedor de geolocalización y del framework visual."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_capture_004",
+      "kind": "source_capture",
+      "data": {
+        "source_ref": "src:qr_access",
+        "content": "Un acceso denegado no debe crear un `ScanEvent` ni un `ActionEvent` como si la interacción hubiese sido válida."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_quote_004",
+      "kind": "source_quote",
+      "data": {
+        "source_ref": "src:qr_access",
+        "quote": "Un acceso denegado no debe crear un `ScanEvent` ni un `ActionEvent` como si la interacción hubiese sido válida."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_capture_005",
+      "kind": "source_capture",
+      "data": {
+        "source_ref": "src:qr_analytics",
+        "content": "QR debe explicar el recorrido **físico → digital → acción** sin convertir la analítica en vigilancia de personas."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_quote_005",
+      "kind": "source_quote",
+      "data": {
+        "source_ref": "src:qr_analytics",
+        "quote": "QR debe explicar el recorrido **físico → digital → acción** sin convertir la analítica en vigilancia de personas."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_capture_006",
+      "kind": "source_capture",
+      "data": {
+        "source_ref": "src:qr_geolocation",
+        "content": "Obtener la mejor señal geográfica razonable sin convertir una estimación de red en una afirmación de ubicación física exacta."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "source_quote_006",
+      "kind": "source_quote",
+      "data": {
+        "source_ref": "src:qr_geolocation",
+        "quote": "Obtener la mejor señal geográfica razonable sin convertir una estimación de red en una afirmación de ubicación física exacta."
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "background_001",
+      "kind": "background",
+      "data": {
+        "statement": "Los documentos de QR describen producción de tarjetas, enlaces públicos, análisis de interacciones, políticas de acceso y persistencia. La implementación, operación y pertinencia de esas capacidades deben evaluarse por separado."
+      },
+      "source_refs": [
+        "src:qr_readme",
+        "src:qr_product"
+      ]
+    },
+    {
+      "id": "constraint_001",
+      "kind": "constraint",
+      "data": {
+        "statement": "La investigación se limita a leer la versión fijada del repositorio QR y sus evidencias. KigenOggly no cambia su código ni asume la identidad de sus visitantes o destinatarios."
+      },
+      "source_refs": [
+        "user:project_direction_20261015"
+      ]
+    },
+    {
+      "id": "open_question_001",
+      "kind": "open_question",
+      "data": {
+        "text": "¿Cuál es la necesidad prioritaria del producto y cómo se comprobará con quienes usan o administran QR?"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "open_question_002",
+      "kind": "open_question",
+      "data": {
+        "text": "¿Cuáles de las funciones declaradas funcionan de forma operativa, cuáles están incompletas y cuáles dependen de entornos específicos?"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "open_question_003",
+      "kind": "open_question",
+      "data": {
+        "text": "¿Qué obstáculos enfrentan los roles propietario, operador, destinatario y visitante en los recorridos reales?"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "open_question_004",
+      "kind": "open_question",
+      "data": {
+        "text": "¿Qué hechos sustentan la atribución tarjeta-entrega-escaneo-visita-acción y dónde hay incertidumbre o datos ausentes?"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "open_question_005",
+      "kind": "open_question",
+      "data": {
+        "text": "¿Cómo operan realmente las políticas de acceso, privacidad, consentimiento, retención y geolocalización en el producto?"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "open_question_006",
+      "kind": "open_question",
+      "data": {
+        "text": "¿Qué alternativas existen ante las dificultades detectadas, incluidas no modificar software, cambios de procesos y soluciones externas?"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "open_question_007",
+      "kind": "open_question",
+      "data": {
+        "text": "¿Qué capacidades avalan las pruebas automáticas y cuáles requieren verificación con personas, dispositivos y operación real?"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "open_question_008",
+      "kind": "open_question",
+      "data": {
+        "text": "¿Con qué criterios medibles se decidiría continuar, corregir o cambiar el software, sin sesgo a una opción?"
+      },
+      "source_refs": [
+        "user:kigenoggly_source_review"
+      ]
+    },
+    {
+      "id": "readiness_request_001",
+      "kind": "readiness_request",
+      "data": {
+        "scope": "structural_review"
+      },
+      "source_refs": [
+        "user:project_direction_20261015"
+      ]
+    }
+  ]
+}
