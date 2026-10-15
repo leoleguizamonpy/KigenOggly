@@ -1,0 +1,51 @@
+name: Integridad del expediente
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [develop, main]
+permissions:
+  contents: read
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verificar entrada y procedencia
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          envelope=json.loads(Path("data/intake.json").read_text(encoding="utf-8"))
+          assert envelope["schema_version"] == 1
+          assert envelope["demo"] is False
+          assert envelope["project_id"] == "kigen_oggly"
+          assert (envelope["source_block"],envelope["target_block"],envelope["stage"]) == ("project_intake","research_diagnosis","diagnostico")
+          records=envelope["records"]
+          ids=[r["id"] for r in records]
+          assert len(ids)==len(set(ids))
+          assert len([r for r in records if r["kind"]=="initial_request"])==1
+          allowed_prefixes=("user:","src:","task:")
+          assert all(isinstance(r.get("source_refs"),list) and r["source_refs"] and all(isinstance(x,str) and x.startswith(allowed_prefixes) for x in r["source_refs"]) for r in records)
+          sources={r["data"]["source_ref"]:r for r in records if r["kind"]=="source_entry"}
+          assert len(sources)==len([r for r in records if r["kind"]=="source_entry"])
+          captures={r["data"]["source_ref"]:r["data"]["content"] for r in records if r["kind"]=="source_capture"}
+          for r in records:
+              for ref in r["source_refs"]:
+                  if ref.startswith("src:"):
+                      assert ref in sources, ("fuente sin registrar",ref)
+              if r["kind"]=="source_quote":
+                  assert r["data"]["quote"] in captures[r["data"]["source_ref"]]
+                  assert captures[r["data"]["source_ref"]].count(r["data"]["quote"])==1
+          pinned="8e628c3484de31a1e88ab3b6e75cb2e25e371f32"
+          assert all(pinned in r["data"]["locator"] for r in sources.values() if r["data"]["source_ref"]!="src:qr_ci_run")
+          if Path("data/diagnosis.json").exists():
+              d=json.loads(Path("data/diagnosis.json").read_text(encoding="utf-8"))
+              assert d["project_id"]==envelope["project_id"]
+              assert d["source_block"]=="research_diagnosis" and d["stage"]=="diagnostico"
+              readiness=[r["data"] for r in d["records"] if r["kind"]=="diagnosis_readiness"]
+              assert readiness and readiness[0]["closure_status"]=="blocked"
+              assert readiness[0]["transition_status"]=="not_authorized"
+          print("Integridad del expediente: conforme; sin aprobar la etapa.")
+          PY
