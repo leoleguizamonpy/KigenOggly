@@ -1,0 +1,39 @@
+name: Higiene de ramas
+
+on:
+  push:
+    branches: [develop]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  cleanup:
+    name: Eliminar ramas temporales fusionadas
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Conservar solo trabajo pendiente y ramas permanentes
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api --paginate "repos/$REPO/pulls?state=closed&per_page=100" \
+            --jq '.[] | select(.merged_at != null) | [.head.ref, .head.sha, .head.repo.full_name] | @tsv' \
+            > /tmp/merged_heads.tsv
+          while IFS=$'\t' read -r branch expected source_repo; do
+            [[ "$source_repo" == "$REPO" ]] || continue
+            case "$branch" in
+              feat/*|fix/*|test/*) ;;
+              *) continue ;;
+            esac
+            current=$(gh api "repos/$REPO/git/ref/heads/$branch" --jq '.object.sha' 2>/dev/null || true)
+            if [[ -n "$current" && "$current" == "$expected" ]]; then
+              echo "Retirando rama temporal ya fusionada: $branch ($current)"
+              gh api -X DELETE "repos/$REPO/git/refs/heads/$branch"
+            fi
+          done < /tmp/merged_heads.tsv
+          echo "Higiene de ramas completada. No se modifica main ni develop."
